@@ -25,7 +25,9 @@ import com.example.aaachat.menu.Category3Fragment;
 import com.example.aaachat.menu.Category4Fragment;
 import com.example.aaachat.menu.Category5Fragment;
 import com.example.aaachat.menu.Category6Fragment;
+import com.example.aaachat.startup.PrivacyPolicyActivity;
 import com.example.aaachat.startup.ProfileActivity;
+import com.example.aaachat.startup.TermsAndConditionsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -190,14 +192,12 @@ public class buyerMainActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_terms:
-                Toast.makeText(this,"Terms and Conditions",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(buyerMainActivity.this, TermsAndConditionsActivity.class));
                 break;
 
-            /*
-            case R.id.menu_options:
-                Toast.makeText(this,"Options",Toast.LENGTH_SHORT).show();
+            case R.id.menu_privacy:
+                startActivity(new Intent(buyerMainActivity.this, PrivacyPolicyActivity.class));
                 break;
-             */
         }
         return super.onOptionsItemSelected(item);
     }

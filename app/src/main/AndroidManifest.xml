@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AAAChat">
-        <activity android:name=".startup.TermsAndConditionsActivity"></activity>
+        <activity android:name=".startup.PrivacyPolicyActivity"></activity>
+        <activity android:name=".startup.TermsAndConditionsActivity" />
         <activity android:name=".startup.ProfileActivity" />
         <activity android:name=".auth.Phoneno_verify" />
         <activity android:name=".auth.otp_check" />

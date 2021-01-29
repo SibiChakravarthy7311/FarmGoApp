@@ -25,6 +25,7 @@ import com.example.aaachat.menu.Category3Fragment;
 import com.example.aaachat.menu.Category4Fragment;
 import com.example.aaachat.menu.Category5Fragment;
 import com.example.aaachat.menu.Category6Fragment;
+import com.example.aaachat.startup.ProfileActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -44,12 +45,11 @@ public class buyerMainActivity extends AppCompatActivity {
         binding.tabLayout.setupWithViewPager(binding.viewPager);
         setSupportActionBar(binding.toolbar);
 
-        //binding.navigation.setNavigationItemSelectedListener(this);
 
         binding.profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(buyerMainActivity.this, SplashActivity.class));
+                startActivity(new Intent(buyerMainActivity.this, ProfileActivity.class));
             }
         });
 

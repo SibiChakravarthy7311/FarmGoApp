@@ -2,6 +2,7 @@ package com.example.aaachat.menu;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,12 @@ import com.example.aaachat.adapter.FavoritesListAdapter;
 import com.example.aaachat.adapter.ItemListAdapter;
 import com.example.aaachat.model.FavoritesList;
 import com.example.aaachat.model.ItemList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +38,7 @@ public class AllItemsFragment extends Fragment {
     private int []arr;
     private List<ItemList> list = new ArrayList<>();
     private RecyclerView recyclerView;
+    private DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -52,9 +60,33 @@ public class AllItemsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_items, container, false);
-        recyclerView = view.findViewById(R.id.recyclerView);
-        layoutManager = new GridLayoutManager(this.getContext(),2);
-        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView = view.findViewById(R.id.recyclerView);
+//        layoutManager = new GridLayoutManager(this.getContext(),2);
+//        recyclerView.setLayoutManager(layoutManager);
+
+//        GridView
+//        list=new ArrayList<>();
+        Query query=ref.child("grid");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot datasnapshot: snapshot.getChildren()){
+                    ItemList item=new ItemList(datasnapshot.child("name").getValue().toString(),datasnapshot.child("image").getValue().toString());
+                    list.add(item);
+                }
+//
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        recyclerView=view.findViewById(R.id.recyclerView);
+        ItemListAdapter adapter=new ItemListAdapter(list,this.getContext());
+        recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(),2,GridLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(adapter);
 
         //recyclerView.setAdapter(new ItemListAdapter(list, this.getContext(),arr));
         return view;

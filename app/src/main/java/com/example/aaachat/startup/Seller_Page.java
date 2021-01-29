@@ -221,10 +221,6 @@ public class Seller_Page extends AppCompatActivity {
                             {
                                 category_name.setText(item.getTitle());
                             }
-                            if(item.getItemId()==R.id.item6)
-                            {
-                                category_name.setText(item.getTitle());
-                            }
                             return true;
                         }
                     });

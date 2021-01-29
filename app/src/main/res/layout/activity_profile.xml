@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutUsActivity">
+    tools:context=".startup.ProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_about"
@@ -23,7 +23,7 @@
             app:titleTextColor="@color/white">
 
             <ImageView
-                android:id="@+id/back_about"
+                android:id="@+id/back_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_arrow_back_24_white"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FarmGo"
+                android:text="Profile"
                 android:textColor="@color/white"
                 android:layout_marginStart="35dp"
                 android:textSize="22sp"
@@ -42,22 +42,4 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/about_us_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/app_bar_about"
-        android:text="About Us"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#222020"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_us_title"
-        android:text="FarmGo is an friendly online market for farmers and a pre-eminent startUp where farmers and people can meet, buy and sell agricultural products."
-        android:textSize="18sp"
-        android:layout_marginTop="5dp"/>
 </RelativeLayout>

@@ -35,6 +35,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class Seller_Page extends AppCompatActivity {
@@ -49,7 +51,8 @@ public class Seller_Page extends AppCompatActivity {
     private AutoCompleteTextView textView;
     private ImageButton imageButton;
     private TextView category_name;
-    private DatabaseReference ref1=FirebaseDatabase.getInstance().getReference("Items");
+    private TextView market_price;
+    private DatabaseReference ref1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +92,8 @@ public class Seller_Page extends AppCompatActivity {
         imageButton=(ImageButton)findViewById(R.id.imageButton);
         category_name=(TextView)findViewById(R.id.category_name);
         textView=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+        market_price=(TextView)findViewById(R.id.marketprice);
+        ref1=FirebaseDatabase.getInstance().getReference("items");
 
         ValueEventListener event=new ValueEventListener() {
               @Override
@@ -175,7 +180,7 @@ public class Seller_Page extends AppCompatActivity {
                                 for(DataSnapshot child:Parent.getChildren())
                                 {
                                     String children=child.getValue(String.class);
-                                    if(children.equals(textView.getText().toString().toUpperCase()))
+                                    if(children.equals(textView.getText().toString()))
                                     {
                                         String parent_name= Parent.getKey();
                                         category_name.setText(parent_name);
@@ -190,7 +195,28 @@ public class Seller_Page extends AppCompatActivity {
 
                         }
                     });
+                }
+            });
+            market_price.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DatabaseReference prd=FirebaseDatabase.getInstance().getReference("Market-Price");
+                    prd.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dsnapshot) {
+                            for(DataSnapshot cat:dsnapshot.getChildren())
+                            {
+                                    for(DataSnapshot item:cat.getChildren()){
+                                        
+                                    }
+                                }
+                            }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
             });
             imageButton.setOnClickListener(new View.OnClickListener() {

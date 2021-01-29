@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.aaachat.auth.Phoneno_verify;
+import com.example.aaachat.startup.Seller_Page;
 import com.example.aaachat.startup.WelcomeScreenActivity;
 
 public class
@@ -20,7 +22,7 @@ SplashActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                startActivity(new Intent(SplashActivity.this, WelcomeScreenActivity.class));
+                startActivity(new Intent(SplashActivity.this, Seller_Page.class));
                 finish();
             }
         }, 3000);

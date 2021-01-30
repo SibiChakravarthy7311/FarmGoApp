@@ -32,21 +32,6 @@ public class AllItemsFragment extends Fragment {
 
 
     public AllItemsFragment() {
-        // Required empty public constructor
-    }
-
-    private int []arr;
-    private List<ItemList> list = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
-
-    RecyclerView.LayoutManager layoutManager;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-//        list.clear();
         Query query=ref.child("grid");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,6 +48,15 @@ public class AllItemsFragment extends Fragment {
 
             }
         });
+    }
+
+    private List<ItemList> list = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         getChatList();
 

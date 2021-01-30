@@ -120,9 +120,9 @@ public class buyerMainActivity extends AppCompatActivity {
     {
         buyerMainActivity.SectionsPagerAdapter adapter= new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new AllItemsFragment(), "All Items");
-        adapter.addFragment(new Category1Fragment(), "Category 1");
-        adapter.addFragment(new Category2Fragment(), "Category 2");
-        adapter.addFragment(new Category3Fragment(), "Category 3");
+        adapter.addFragment(new Category1Fragment(), "Vegetables");
+        adapter.addFragment(new Category2Fragment(), "Cereals");
+        adapter.addFragment(new Category3Fragment(), "Fruits");
         adapter.addFragment(new Category4Fragment(), "Category 4");
         adapter.addFragment(new Category5Fragment(), "Category 5");
         adapter.addFragment(new Category6Fragment(), "Category 6");

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aaachat.R;
+import com.example.aaachat.buyerMainActivity;
 import com.example.aaachat.startup.Profile_Page;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -164,7 +165,7 @@ public class otp_check extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     //verification successful we will start the profile activity
-                                    Intent intent = new Intent(otp_check.this, Profile_Page.class);
+                                    Intent intent = new Intent(otp_check.this, buyerMainActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
 

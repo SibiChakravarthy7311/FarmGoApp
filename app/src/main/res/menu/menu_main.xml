@@ -37,7 +37,7 @@
 
             <item
                 android:id="@+id/menu_privacy"
-                android:icon="@drawable/ic_baseline_terms"
+                android:icon="@drawable/ic_baseline_privacy"
                 android:title="Privacy Policy"
                 />
 

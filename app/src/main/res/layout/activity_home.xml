@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="I am a seller"
             android:layout_margin="75dp"
-            android:background="#C88C33"/>
+            android:backgroundTint="#C88C33"/>
 
     </LinearLayout>
 

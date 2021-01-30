@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.aaachat.databinding.ActivityMainBinding;
@@ -24,12 +25,17 @@ import com.example.aaachat.menu.Category3Fragment;
 import com.example.aaachat.menu.Category4Fragment;
 import com.example.aaachat.menu.Category5Fragment;
 import com.example.aaachat.menu.Category6Fragment;
+import com.example.aaachat.startup.HomeActivity;
+import com.example.aaachat.startup.PrivacyPolicyActivity;
+import com.example.aaachat.startup.ProfileActivity;
+import com.example.aaachat.startup.Seller_Page;
+import com.example.aaachat.startup.TermsAndConditionsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class buyerMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class buyerMainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
@@ -43,7 +49,12 @@ public class buyerMainActivity extends AppCompatActivity implements NavigationVi
         binding.tabLayout.setupWithViewPager(binding.viewPager);
         setSupportActionBar(binding.toolbar);
 
-        binding.navigation.setNavigationItemSelectedListener(this);
+        binding.profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(buyerMainActivity.this, ProfileActivity.class));
+            }
+        });
 
         binding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -119,33 +130,6 @@ public class buyerMainActivity extends AppCompatActivity implements NavigationVi
         viewPager.setAdapter(adapter);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            int id = item.getItemId();
-            switch (id)
-            {
-                case R.id.menu_back:
-                    Toast.makeText(this,"Back",Toast.LENGTH_SHORT).show();
-                    break;
-
-                case R.id.menu_home:
-                    Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show();
-                    break;
-
-                case R.id.menu_bookmarks:
-                    Toast.makeText(this,"Bookmarks",Toast.LENGTH_SHORT).show();
-                    break;
-
-                case R.id.menu_aboutUs:
-                    startActivity(new Intent(buyerMainActivity.this, AboutUsActivity.class));
-                    break;
-
-                case R.id.menu_terms:
-                    Toast.makeText(this,"Terms and Conditions",Toast.LENGTH_SHORT).show();
-                    break;
-            }
-            return super.onOptionsItemSelected(item);
-    }
 
     private static class SectionsPagerAdapter extends FragmentPagerAdapter
     {
@@ -195,11 +179,26 @@ public class buyerMainActivity extends AppCompatActivity implements NavigationVi
             case R.id.menu_search:
                 Toast.makeText(this,"Search",Toast.LENGTH_SHORT).show();
                 break;
-            /*
-            case R.id.menu_options:
-                Toast.makeText(this,"Options",Toast.LENGTH_SHORT).show();
+
+            case R.id.menu_home:
+                startActivity(new Intent(buyerMainActivity.this, HomeActivity.class));
                 break;
-             */
+
+            case R.id.menu_bookmarks:
+                Toast.makeText(this,"Bookmarks",Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menu_terms:
+                startActivity(new Intent(buyerMainActivity.this, TermsAndConditionsActivity.class));
+                break;
+
+            case R.id.menu_privacy:
+                startActivity(new Intent(buyerMainActivity.this, PrivacyPolicyActivity.class));
+                break;
+
+            case R.id.menu_aboutUs:
+                startActivity(new Intent(buyerMainActivity.this, AboutUsActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

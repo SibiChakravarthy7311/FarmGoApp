@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.aaachat.auth.Phoneno_verify;
 import com.example.aaachat.buyerMainActivity;
 import com.example.aaachat.R;
 
@@ -24,7 +25,7 @@ public class WelcomeScreenActivity extends AppCompatActivity {
         btnAgree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeScreenActivity.this, buyerMainActivity.class));
+                startActivity(new Intent(WelcomeScreenActivity.this, Phoneno_verify.class));
             }
         });
     }

@@ -9,6 +9,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aaachat.R;
+import com.example.aaachat.buyerMainActivity;
+import com.example.aaachat.startup.HomeActivity;
 import com.example.aaachat.startup.Profile_Page;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +32,7 @@ public class Phoneno_verify extends AppCompatActivity {
         currentuser= FirebaseAuth.getInstance().getCurrentUser();
         if(currentuser!=null)
         {
-            startActivity(new Intent(getApplicationContext(),Profile_Page.class));
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
 
         ccode=(CountryCodePicker)findViewById(R.id.ccp);

@@ -40,6 +40,13 @@
                 android:textSize="22sp"
                 android:textStyle="bold"/>
 
+            <ImageView
+                android:id="@+id/add_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_24_white"
+                android:layout_gravity="right" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

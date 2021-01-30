@@ -11,14 +11,14 @@
         <menu>
 
             <item
-                android:id="@+id/menu_home"
-                android:icon="@drawable/ic_baseline_home_24"
+                android:id="@+id/menu_store"
+                android:icon="@drawable/ic_baseline_store_24"
                 android:title="My Inventory"
                 />
 
             <item
-                android:id="@+id/menu_bookmarks"
-                android:icon="@drawable/ic_baseline_star_rate_24"
+                android:id="@+id/menu_add"
+                android:icon="@drawable/ic_baseline_add_24"
                 android:title="Add items"
                 />
 

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.example.aaachat.R;
 import com.example.aaachat.buyerMainActivity;
+import com.example.aaachat.seller.sellerProfileActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         seller_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, Seller_Page.class));
+                startActivity(new Intent(HomeActivity.this, sellerProfileActivity.class));
             }
         });
     }

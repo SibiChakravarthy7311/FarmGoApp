@@ -200,25 +200,20 @@ public class Seller_Page extends AppCompatActivity {
             market_price.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DatabaseReference prd=FirebaseDatabase.getInstance().getReference("Market-Price");
-                    prd.addValueEventListener(new ValueEventListener() {
+                    DatabaseReference prd = FirebaseDatabase.getInstance().getReference("Market-Price");
+                    DatabaseReference prd1 = prd.child(category_name.getText().toString()).child(textView.getText().toString());
+                    prd1.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dsnapshot) {
-                            for(DataSnapshot cat:dsnapshot.getChildren())
-                            {
-                                    for(DataSnapshot item:cat.getChildren()){
-                                        
-                                    }
-                                }
-                            }
-
+                            market_price.setText(dsnapshot.getValue(Long.class).toString());
+                        }
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
                 }
             });
+
             imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

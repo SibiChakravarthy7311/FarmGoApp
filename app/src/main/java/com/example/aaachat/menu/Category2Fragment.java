@@ -35,7 +35,7 @@ public class Category2Fragment extends Fragment {
     private DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
 
     public Category2Fragment() {
-        Query query=ref.child("grid");
+        Query query=ref.child("cereal");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

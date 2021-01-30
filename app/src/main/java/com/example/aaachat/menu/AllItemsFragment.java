@@ -46,28 +46,9 @@ public class AllItemsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getChatList();
-
-    }
-
-
-    private void getChatList() {
-        //list.add("","");
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_all_items, container, false);
-//        recyclerView = view.findViewById(R.id.recyclerView);
-//        layoutManager = new GridLayoutManager(this.getContext(),2);
-//        recyclerView.setLayoutManager(layoutManager);
-
-//        GridView
-//        list=new ArrayList<>();
+//        list.clear();
         Query query=ref.child("grid");
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot datasnapshot: snapshot.getChildren()){
@@ -82,6 +63,21 @@ public class AllItemsFragment extends Fragment {
 
             }
         });
+
+        getChatList();
+
+    }
+
+
+    private void getChatList() {
+        //list.add("","");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_all_items, container, false);
 
         recyclerView=view.findViewById(R.id.recyclerView);
         ItemListAdapter adapter=new ItemListAdapter(list,this.getContext());

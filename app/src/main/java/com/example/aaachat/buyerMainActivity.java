@@ -43,7 +43,7 @@ public class buyerMainActivity extends AppCompatActivity implements NavigationVi
         binding.tabLayout.setupWithViewPager(binding.viewPager);
         setSupportActionBar(binding.toolbar);
 
-        binding.navigation.setNavigationItemSelectedListener(this);
+        //binding.navigation.setNavigationItemSelectedListener(this);
 
         binding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -184,7 +184,6 @@ public class buyerMainActivity extends AppCompatActivity implements NavigationVi
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
-
     }
 
     @Override
